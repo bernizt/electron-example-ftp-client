@@ -1,0 +1,33 @@
+{
+  "name": "ftp-client-example",
+  "version": "0.1",
+  "description": "An electron example created with electron-webpack and Typescript",
+  "author": "Bernat Zaragoza Travieso",
+  "license": "MIT",
+  "scripts": {
+    "ftp-srv": "ftp-srv ftp://0.0.0.0:9876 --root ~Documents",
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "dist": "yarn compile && electron-builder",
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
+  },
+  "dependencies": {
+    "basic-ftp": "^4.5.4",
+    "source-map-support": "^0.5.16"
+  },
+  "devDependencies": {
+    "@types/node": "12",
+    "electron": "8.2.0",
+    "electron-builder": "^22.4.1",
+    "electron-webpack": "^2.8.2",
+    "electron-webpack-ts": "^4.0.1",
+    "ftp-srv": "^4.3.1",
+    "typescript": "^3.8.3",
+    "webpack": "~4.42.1"
+  },
+  "electronWebpack": {
+    "renderer": {
+      "template": "src/renderer/index.html"
+    }
+  }
+}

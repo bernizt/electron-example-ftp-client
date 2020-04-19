@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <div id="dropper">
+    <p>Drop file to upload</p>
+  </div>
+  <div id="main">
+    <div id="dircontents">
+    </div>
+    <div id="serversettings">
+      <label for="host">Host: </label>
+      <!-- Prevent ondragstart to trigger file drop area -->
+      <input type="text" id="host" name="host" value="127.0.0.1" ondragstart="return false;">
+      <label for="port">Port: </label>
+      <input type="text" id="port" name="port" value="9876" ondragstart="return false;">
+      <button id="connect-button">Refresh</button>
+    </div>
+  </div>
+</body>
+
+</html>
