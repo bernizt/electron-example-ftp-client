@@ -1,6 +1,6 @@
 {
   "name": "ftp-client-example",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "An electron example created with electron-webpack and Typescript",
   "author": "Bernat Zaragoza Travieso",
   "license": "MIT",
