@@ -7,9 +7,9 @@ import Icon from './text-file-icon-5923.svg';
 
 class DropArea {
     constructor(private htmlElement: HTMLElement) {
-        htmlElement.ondragleave = e => this.onDragLeave(e);
-        htmlElement.ondragover = e => this.onDragOver(e);
-        htmlElement.ondrop = e => this.onDrop(e);
+        htmlElement.addEventListener("dragleave", event => this.onDragLeave(event));
+        htmlElement.addEventListener("dragover", event => this.onDragOver(event));
+        htmlElement.addEventListener("drop", event => this.onDrop(event));
     }
 
     show() {
@@ -68,11 +68,10 @@ fileTemplate.innerHTML = `<div class="fileitem">
 </div>`;
 
 async function showFTPDirList(): Promise<void> {
-    let client;
-    //client.ftp.verbose = true;
     let files: ftp.FileInfo[] = [];
     try {
-        client = await connectToServer()
+        const client = await connectToServer()
+        //client.ftp.verbose = true;
         files = await client.list();
         client.close()
     }
@@ -90,10 +89,6 @@ async function showFTPDirList(): Promise<void> {
     }
 }
 
-document.getElementById("connect-button")!.onclick = showFTPDirList;
-
+document.getElementById("connect-button")!.addEventListener("click", () => showFTPDirList())
 const fileDropper = new DropArea(document.getElementById("dropper")!);
-
-window.addEventListener('dragenter', function (e) {
-    fileDropper.show();
-});
+window.addEventListener('dragenter', () => fileDropper.show());
