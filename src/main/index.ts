@@ -13,6 +13,7 @@ function createMainWindow() {
     minWidth: 335,
     minHeight: 300,
     backgroundColor: '#FEFEFE',
+    acceptFirstMouse: true,
     webPreferences: { nodeIntegration: true }
   })
 
