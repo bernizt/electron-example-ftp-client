@@ -13,11 +13,11 @@ class DropArea {
     }
 
     show() {
-        this.htmlElement.style.display = "flex";
+        this.htmlElement.classList.remove("hidden");
     }
 
     hide() {
-        this.htmlElement.style.display = "none";
+        this.htmlElement.classList.add("hidden");
     }
 
     private onDragLeave(event: Event): void {
